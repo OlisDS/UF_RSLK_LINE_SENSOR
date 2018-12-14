@@ -27,7 +27,7 @@ for each line sensor read operation.
 
 Line Sensor Notes:  
 Pololu Info: https://www.pololu.com/product/961  
-TI use instructions(from 6.4.3)  
+TI use instructions for line sensor reading(from 6.4.3)  
 1) Set P5.3 high (turn on IR LED)  
 2) Make P7.7 – P7.0 outputs, and set them high (charging 8 capacitors)   
 3)Wait 10 us, Clock_Delay1us(10);  	
@@ -46,3 +46,5 @@ The TI doc says to make time and input variable, but the suggested time is 1000u
 The student is supposed to use an O-scope to varify that this is correct, but we'll
 probably skip over the having them do that and just hard code that in driver.
 
+With the nature of the sensor hardware, an interrupt driven solution to detecting sensor
+state changes is not practical. 
