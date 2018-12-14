@@ -5,8 +5,8 @@
  * Line Sensor board
  *
  * Hardware Notes: The line sensor is attached for Port 7 pins 7 to 0.
- * Pin 7 - far right
- * Pin 0 - far left
+ * Pin 7 - far left
+ * Pin 0 - far right
  */
 
 /************************INCLUDES*****************************/
