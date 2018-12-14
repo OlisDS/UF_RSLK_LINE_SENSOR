@@ -3,8 +3,9 @@ Authors: Marquez Jones, Daniel Olis
 Github: https://github.com/OlisDS/UF_RSLK_LINE_SENSOR.git  
 
 Desc: 
-This code will be drivers for students to interface the line sensor with their robot  
-along with example code for the sensor. This may incorporate additional mod 6 content(TBD).  
+This code will consist of drivers for students to interface the line sensor and their robot  
+along with example code for the sensor. Demonstation code will also be included.
+This may incorporate additional mod 6 content(TBD).  
 
 Objectives of the Module(from TI document):  
 1. Basics of functions, conditionals, loops, and calculations in C (covered by all TAs)  
@@ -36,12 +37,12 @@ TI use instructions(from 6.4.3)
 7) Set P5.3 low (turn off IR LED, saving power)   
 8) Return 8-bit binary measured in step 6  
 
-Effectively in order to read the sensor status, you must charge the 
-an on board capacitor by setting the P7.7 - 7.1 high then reading the pins. 
+Effectively in order to read the sensor status, you must charge an
+on board capacitor by setting the P7.7 - 7.0 high then reading the pins. 
 For some analog reason we will abstract away, black reflectance causes the 
 capactitor to discharge a slower rate which allows us to read high for the IO input.
 10us for charge and the variable time for discharge. 
 The TI doc says to make time and input variable, but the suggested time is 1000us. 
 The student is supposed to use an O-scope to varify that this is correct, but we'll
-probably skip over the havin them do that and just hard code that in driver.
+probably skip over the having them do that and just hard code that in driver.
 
