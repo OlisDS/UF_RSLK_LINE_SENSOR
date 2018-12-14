@@ -13,7 +13,9 @@ Objectives of the Module(from TI document):
 4. Learning how to interface the line sensor to the MCU(our primary purpose)  
 
 Software Notes:  
-
+The TI module instructs students to run TExas(header file included in TI code) 
+on the msp432 to use an o-scope feature. Since we'll have DADs in theory, we will 
+ignore this part of the instructions.
 
 Hardware Notes:  
 The sensor will return 0 if sees white and 1 if sees black.
