@@ -19,7 +19,7 @@
 //From TI Robotics kit
 #include "Clock.h"
 
-//Written by UF TAs
+//Made for Workshop
 #include "LineSensor.h"
 
 /***********************FUNCTION PROTOTYPES***********************************/
