@@ -21,7 +21,7 @@ ignore this part of the instructions.
 Hardware Notes:  
 The sensor will return 0 if sees white and 1 if sees black.
 Based on robot construction guidelines the line sensors is attached to Port 7 on the MCU.
-With this pin 7 is the far right while pin 0 is the far left. 
+With this pin 7 is the far left while pin 0 is the far right. 
 There's also an IR LED attached to P5.3 which is recommended to be turned on 
 for each line sensor read operation.
 

@@ -12,6 +12,17 @@
 #ifndef LINESENSOR_H_
 #define LINESENSOR_H_
 
+//defines
+
+/*
+ * line_position function should never return a value between 0 and 47 if a line exists
+ * if the function returns 0x01, the machine is no longer on the line and
+ * student should create proper measures to either navigate without the
+ * line or find the line
+ */
+#define NO_LINE_ERROR 0x01
+#define YEET 0x59454554
+
 /* Desc: Initializes pins in use of the line sensor
  * Port 7:
  * All pins initialized as I/O and inputs
@@ -41,5 +52,22 @@ void line_sensor_init(void);
  * Assumptions: That line_sensor_init() was called
  */
 uint8_t line_read(void);
+
+/*
+ * Desc: outputs a distance(in 0.1mm) between center of robot and line
+ *       if the line is not within range of the, the function will output an
+ *       error code
+ *
+ * Hardware Notes:
+ * Assuming the robot is constructed with P7.7 being far left
+ * and P7.0 being on the far right,
+ *
+ * A negative value should mean the line is on the left side of the robot
+ * while a positive value means the line is right of the robot's center
+ *
+ * Inputs: data from line read
+ * Outputs: signed distance from center or error if no line
+ */
+int32_t line_position(uint8_t data);
 
 #endif /* LINESENSOR_H_ */

@@ -77,3 +77,60 @@ uint8_t line_read(void){
     return result;
 }
 
+/*
+ * Desc: outputs a distance(in 0.1 mm) between center of robot and line
+ *       if the line is not within range of the, the function will output an
+ *       error code
+ *
+ * Hardware Notes:
+ * Assuming the robot is constructed with P7.7 being far left
+ * and P7.0 being on the far right,
+ *
+ * A negative value should mean the line is on the left side of the robot
+ * while a positive value means the line is right of the robot's center
+ *
+ * Inputs: data from line read
+ * Outputs: signed distance from center or error
+ * Assumes: the data comes from a line sensor mounted to the robot
+ */
+
+/*
+ * modified from reflectance position in solution code reflectance.c
+ * Based on formula in 6.4.4 in TI lab manual
+ */
+
+const int32_t Weight[8] = {332, 237, 142, 47, -47, -142, -237, -332}; // Weights provided TI
+const int32_t Mask[8] = {0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80};    // Bit masks
+int32_t line_position(uint8_t data){
+
+    /*
+     * relating back to the formula in 6.4.4
+     * count is the sum of the bits which whose values can only be 1 or 0
+     */
+    uint32_t i; int32_t sum,count;
+     if(data){ // calculate only if some active
+       sum = 0; count=0;
+       for(i=0;i<8;i++){
+
+         if(data&Mask[i]){
+
+           sum += Weight[i];
+           count++;
+
+         }
+       }
+       return sum/count; //distance measurement
+     }
+
+     // no sensors see black line if data = 0
+     else{
+
+         //original code returned Weight[0] + 1 (333)
+         //code was to guess and see if the line was on the right
+         //added the error code for external decision making
+         return NO_LINE_ERROR;
+
+     }
+
+}
+
