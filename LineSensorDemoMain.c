@@ -7,7 +7,7 @@
  * Hardware Notes: By TI instructions the light sensor is on port 7
  * which is what the students will use in the final robot design.
  *
- * For demo purposes I set port 4 to outputs
+ * For demo purposes I set port 4 to outputs for LEDs
  */
 
 
