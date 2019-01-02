@@ -41,8 +41,9 @@ Effectively in order to read the sensor status, you must charge an
 on board capacitor by setting the P7.7 - 7.0 high then reading the pins. 
 For some analog reason we will abstract away, black reflectance causes the 
 capactitor to discharge a slower rate which allows us to read high for the IO input.
-10us for charge and the variable time for discharge. 
-The TI doc says to make time and input variable, but the suggested time is 1000us. 
+Likewise, we'll read low for a white reflectance.
+10us for charge and the variable time before checking the sensor with gpio. 
+The TI doc says to make time an input variable, but the suggested time is 1000us. 
 The student is supposed to use an O-scope to varify that this is correct, but we'll
 probably skip over the having them do that and just hard code that in driver.
 
