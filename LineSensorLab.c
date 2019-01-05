@@ -58,14 +58,14 @@ void main(void)
 
 /***********************FUNCTION PROTOTYPES***********************************/
 
-// sets all pins on port 4 to output
+// select pins to use as LED outputs
 void led_init(void){
 
   //insert your code here
   
 }
 
-//writes 8 bit value to LEDs on port 4
+//writes 8 bit value to LED Port
 void led_write(uint8_t data){
 
    //inser your code here
